@@ -1,0 +1,37 @@
+{
+    "Test GICAM inference on annotated VCF": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "justhusky_snv_gicam-predictions.vcf:md5,57c88fc976d6833bcf0584bce9959fec"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,d74993b730244bef0a42ce9f1722773c"
+                ],
+                "vcf": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "justhusky_snv_gicam-predictions.vcf:md5,57c88fc976d6833bcf0584bce9959fec"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,d74993b730244bef0a42ce9f1722773c"
+                ]
+            }
+        ],
+        "timestamp": "2026-04-20T15:46:12.732967365",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    }
+}

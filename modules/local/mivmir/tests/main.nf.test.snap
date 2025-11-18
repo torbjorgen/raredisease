@@ -1,0 +1,37 @@
+{
+    "Test MIVMIR inference on annotated VCF": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "justhusky_snv_mivmir-predictions.vcf:md5,50e4de56396cfbbf97607cddef15c205"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,1bc43426c3932e86ec0fb878e91bdc05"
+                ],
+                "vcf": [
+                    [
+                        {
+                            "id": "test",
+                            "single_end": false
+                        },
+                        "justhusky_snv_mivmir-predictions.vcf:md5,50e4de56396cfbbf97607cddef15c205"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,1bc43426c3932e86ec0fb878e91bdc05"
+                ]
+            }
+        ],
+        "timestamp": "2026-04-20T15:28:56.282085185",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    }
+}

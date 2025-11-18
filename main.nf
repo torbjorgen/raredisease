@@ -105,6 +105,7 @@ workflow NFCORE_RAREDISEASE {
     val_readcount_intervals
     val_reduced_penetrance
     val_rtg_truthvcfs
+    val_rank_with_mivmir_gicam
     val_run_mt_for_wes
     val_run_rtgvcfeval
     val_sambamba_regions
@@ -508,6 +509,7 @@ workflow NFCORE_RAREDISEASE {
         val_mt_subsample_rd,
         val_mt_subsample_seed,
         val_platform,
+        val_rank_with_mivmir_gicam,
         val_run_mt_for_wes,
         val_run_rtgvcfeval,
         val_sample_id_map,
@@ -619,6 +621,7 @@ workflow {
         params.readcount_intervals,
         params.reduced_penetrance,
         params.rtg_truthvcfs,
+        params.rank_with_mivmir_gicam,
         params.run_mt_for_wes,
         params.run_rtgvcfeval,
         params.sambamba_regions,
