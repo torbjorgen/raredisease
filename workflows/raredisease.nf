@@ -469,7 +469,7 @@ workflow RAREDISEASE {
                 ch_score_config_snv,
                 ch_genmod_gicam_score_config,
                 ch_ranksnv_nuclear_in,
-                false
+                false,
                 true
             )
             ch_versions = ch_versions.mix(RANK_VARIANTS_SNV.out.versions)
@@ -643,7 +643,7 @@ workflow RAREDISEASE {
                 ch_score_config_sv,
                 ch_genmod_gicam_score_config,
                 ch_ranksnv_sv_in,
-                true
+                true,
                 false
             )
             ch_versions = ch_versions.mix(RANK_VARIANTS_SV.out.versions)
