@@ -543,6 +543,7 @@ workflow {
         params.save_mapped_as_cram,
         params.score_config_mt,
         params.score_config_snv,
+        params.score_config_genmod_gicam_snv,
         params.score_config_sv,
         params.sdf,
         params.sentieon_dnascope_pcr_indel_model,
