@@ -64,7 +64,7 @@ workflow RANK_VARIANTS {
             ch_vcf.join(TABIX_BGZIPTABIX_GICAM.out.gz_tbi, failOnMismatch: true)
             .map {meta, vcf_genmod, vcf_gicam, vcf_index_gicam -> return [ meta, vcf_genmod, [], vcf_gicam, vcf_index_gicam ]}
             .set {ch_merge_genmod_gicam}
-            BCFTOOLS_MERGE_GENMOD_GICAM(ch_merge_genmod_gicam, [])
+            BCFTOOLS_MERGE_GENMOD_GICAM(ch_merge_genmod_gicam, [], [], [])
             ch_vcf = TABIX_BGZIP_GENMOD_GICAM(BCFTOOLS_MERGE_GENMOD_GICAM.out.vcf)
         }
 
