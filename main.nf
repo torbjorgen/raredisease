@@ -91,6 +91,7 @@ workflow NFCORE_RAREDISEASE {
     val_save_mapped_as_cram
     val_score_config_mt
     val_score_config_snv
+    val_score_config_genmod_gicam_snv
     val_score_config_sv
     val_sdf
     val_sentieon_dnascope_pcr_indel_model
