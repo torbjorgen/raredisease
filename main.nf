@@ -189,7 +189,7 @@ workflow NFCORE_RAREDISEASE {
     ch_rtg_truthvcfs            = channelFromPath(val_rtg_truthvcfs, true)
     ch_score_config_mt          = channelFromPath(val_score_config_mt, true)
     ch_score_config_snv         = channelFromPath(val_score_config_snv, true)
-    ch_genmod_gicam_score_config = channelFromPath(score_config_genmod_gicam_snv, true)
+    ch_genmod_gicam_score_config = channelFromPath(val_score_config_genmod_gicam_snv, true)
     ch_score_config_sv          = channelFromPath(val_score_config_sv, true)
     ch_vcf2cytosure_blacklist   = channelFromPath(val_vcf2cytosure_blacklist, true)
     ch_vcfanno_lua              = channelFromPath(val_vcfanno_lua, true)
