@@ -394,6 +394,7 @@ workflow NFCORE_RAREDISEASE {
         ch_scatter_split_intervals,
         ch_score_config_mt,
         ch_score_config_snv,
+        ch_genmod_gicam_score_config,
         ch_score_config_sv,
         ch_sdf,
         ch_sentieon_pcr_indel_model,
