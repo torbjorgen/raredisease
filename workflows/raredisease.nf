@@ -775,7 +775,7 @@ workflow RAREDISEASE {
     GENS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
-    if (!skip_gens && analysis_type.equals("wgs")) {
+    if (!skip_gens && val_analysis_type.equals("wgs")) {
         GENS (
             ch_mapped.genome_marked_bam_bai,
             ch_genome_dictionary,
