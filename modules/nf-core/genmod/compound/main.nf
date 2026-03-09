@@ -4,7 +4,7 @@ process GENMOD_COMPOUND {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/genmod:3.9--pyhdfd78af_0':
+        'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/31/31b331bee43c7ff070bdde5460a4102ba31c3bfb0ee0d70197001ff011036555/data':
         'biocontainers/genmod:3.9--pyhdfd78af_0' }"
 
     input:
