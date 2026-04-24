@@ -71,6 +71,29 @@ output:
           description: Scored output VCF file
           pattern: "*.{vcf}"
           ontologies: []
+  versions_mivmir:
+    - - "${task.process}":
+          type: string
+          description: The process the versions were collected from
+      - "mivmir":
+          type: string
+          description: The tool name
+      - "version":
+          type: string
+          description: Tool version
+
+topics:
+  versions:
+    - - "${task.process}":
+          type: string
+          description: The process the versions were collected from
+      - "mivmir":
+          type: string
+          description: The tool name
+      - "version":
+          type: eval
+          description: Tool version
+
 authors:
   - "@torbjorgen"
 maintainers:

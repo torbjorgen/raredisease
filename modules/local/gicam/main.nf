@@ -19,22 +19,15 @@ process GICAM_INFER {
 
     output:
     tuple val(meta), path('*-predictions.vcf'), emit: vcf
-    path "versions.yml",                        emit: versions
+    tuple val("${task.process}"), val('gicam'), val('v1.12.0-rc6'), topic: versions, emit: versions_gicam
 
     when:
     task.ext.when == null || task.ext.when
 
     script:
-    def VERSION = 'v1.12.0-rc6'
     """
     . /opt/pyenv/bin/activate
     export PYTHONPATH=/rdds/src
     python3 -m rdds.gicam infer-vcf --cpu_cores ${task.cpus} ${input_vcf}
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        gicam: ${VERSION}
-        python: \$(python --version | sed 's/Python //g')
-    END_VERSIONS
     """
 }
