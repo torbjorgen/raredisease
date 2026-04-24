@@ -7,8 +7,6 @@ nextflow_process {
     test("Test GICAM inference on annotated VCF") {
 
         when {
-            params {
-            }
             process {
                 """
                 input[0] = [
