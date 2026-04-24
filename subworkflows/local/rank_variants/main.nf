@@ -38,6 +38,7 @@ workflow RANK_VARIANTS {
 
         // Run MIVMIR - GICAM scoring (not supported for MT SNVs and SVs)
         if (rank_with_mivmir_gicam) {
+            // ch_genmod_gicam_score_config is integral to GICAM inference; it cannot be changed without retraining gicam
             ch_genmod_gicam_score_config = channel.fromPath("$projectDir/modules/local/gicam/rank_model_genmod_gicam.ini", checkIfExists: true).collect()
             GENMOD_SCORE_FOR_GICAM(ch_score_in, ch_genmod_gicam_score_config)
             MIVMIR_INFER(GENMOD_SCORE_FOR_GICAM.out.vcf)

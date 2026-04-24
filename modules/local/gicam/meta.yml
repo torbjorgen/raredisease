@@ -17,6 +17,10 @@ tools:
 
         The tool adds one key to the VCF
         - GicamScore (0, 1) where 1.0 inferred pathogenic.
+
+        !NOTE! GICAM is optimized for the GENMOD scoring config present in this directory, that
+        generates RankScoreNormalized. Changing the GENMOD scoring config will break inference
+        (unless GICAM is first retrained on the new config).
       homepage: https://github.com/clinicalgenomics/rdds
       documentation: https://github.com/Clinical-Genomics/rdds/tree/master/src/rdds/gicam
       doi: ""
