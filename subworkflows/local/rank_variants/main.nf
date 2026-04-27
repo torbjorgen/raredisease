@@ -50,6 +50,7 @@ workflow RANK_VARIANTS {
 
         ch_sort_publish  = channel.empty()
         ch_tabix_publish = channel.empty()
+        ch_gicam_publish = channel.empty()
 
         if (process_with_sort) {
             ch_vcf = BCFTOOLS_SORT(GENMOD_COMPOUND.out.vcf).vcf // SV file needs to be sorted before indexing
@@ -72,6 +73,9 @@ workflow RANK_VARIANTS {
             BCFTOOLS_MERGE_GENMOD_GICAM(ch_merge_genmod_gicam)
             TABIX_BGZIP_GENMOD_GICAM(BCFTOOLS_MERGE_GENMOD_GICAM.out.vcf).output
             .set {ch_vcf}
+            ch_gicam_publish = TABIX_BGZIP_GENMOD_GICAM.out.gz_index
+                .map {meta, gz, tbi -> ['rank_and_filter/', [meta, gz, tbi]] }
+            ch_publish.mix(ch_gicam_publish)
         }
 
     emit:
