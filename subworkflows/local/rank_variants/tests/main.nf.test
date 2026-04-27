@@ -29,6 +29,7 @@ nextflow_workflow {
                     file(params.modules_testdata_base_path + 'genomics/homo_sapiens/illumina/vcf/genmod.vcf.gz', checkIfExists: true)
                 ])
                 input[4] = false
+                input[5] = false
                 """
             }
         }
@@ -56,6 +57,7 @@ nextflow_workflow {
                     file(params.modules_testdata_base_path + 'genomics/homo_sapiens/illumina/vcf/genmod.vcf.gz', checkIfExists: true)
                 ])
                 input[4] = true
+                input[5] = false
                 """
             }
         }
