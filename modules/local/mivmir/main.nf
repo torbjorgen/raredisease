@@ -19,7 +19,6 @@ process MIVMIR_INFER {
 
     output:
     tuple val(meta), path('*-predictions.vcf'), emit: vcf
-    path "versions.yml",                        emit: versions
     tuple val("${task.process}"), val('mivmir'), val('v1.12.0-rc6'), topic: versions, emit:versions_mivmir
 
     when:

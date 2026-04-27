@@ -12,7 +12,11 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,1bc43426c3932e86ec0fb878e91bdc05"
+                    [
+                        "MIVMIR_INFER",
+                        "mivmir",
+                        "v1.12.0-rc6"
+                    ]
                 ],
                 "vcf": [
                     [
@@ -23,12 +27,16 @@
                         "justhusky_snv_mivmir-predictions.vcf:md5,50e4de56396cfbbf97607cddef15c205"
                     ]
                 ],
-                "versions": [
-                    "versions.yml:md5,1bc43426c3932e86ec0fb878e91bdc05"
+                "versions_mivmir": [
+                    [
+                        "MIVMIR_INFER",
+                        "mivmir",
+                        "v1.12.0-rc6"
+                    ]
                 ]
             }
         ],
-        "timestamp": "2026-04-20T15:28:56.282085185",
+        "timestamp": "2026-04-27T11:19:19.234995243",
         "meta": {
             "nf-test": "0.9.5",
             "nextflow": "25.10.4"
