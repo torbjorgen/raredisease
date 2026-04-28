@@ -70,4 +70,67 @@ nextflow_workflow {
         }
     }
 
+    test("RANK_VARIANTS - SNV WITH MIVMIR, GICAM, stub") {
+
+        config "subworkflows/local/rank_variants/tests/nextflow.config"
+
+        when {
+            workflow {
+                """
+                input[0] = channel.value(file(params.modules_testdata_base_path + 'genomics/homo_sapiens/genome/vcf/ped/justhusky.ped', checkIfExists: true))
+                input[1] = channel.value(file(params.pipelines_testdata_base_path + 'reference/reduced_penetrance.tsv', checkIfExists: true))
+                // TODO: Update path to non hack one
+                input[2] = channel.value(file("$projectDir/subworkflows/local/rank_variants/tests/rank_model_dummy_mivmir_gicam_unit_test.ini", checkIfExists: true))
+                input[3] = channel.of([
+                    [id:'justhusky', single_end: false],
+                    // TODO: This is mix of SNV, SV data, needs to be cleaned first or MIVMIR crasches
+                    //file(params.modules_testdata_base_path + 'genomics/homo_sapiens/illumina/vcf/genmod.vcf.gz', checkIfExists: true)
+                    //file(params.pipelines_testdata_base_path + 'testdata/justhusky_snv_mivmir.vcf', checkIfExists: true)
+                    file('https://raw.githubusercontent.com/torbjorgen/nfcore-test-datasets/rank_variants_mivmir_gicam_test_data/testdata/justhusky_snv_rank_variants_mivmir_gicam.vcf')
+                ])
+                input[4] = false
+                input[5] = true
+                """
+            }
+        }
+
+        then {
+
+            /*
+
+            //snapshot(path(workflow.out.vcf.get(0).get(1)).vcf.getVariantsAsStrings(100)).match()
+            //snapshot(path(workflow.out.vcf.get(0).get(1)).vcf.variantsMD5).match('variantsMD5')
+            //variants = path(workflow.out.vcf.get(0).get(1)).vcf.variants
+            //snapshot(variants).match()
+            //snapshot(path(workflow.out.vcf.get(0).get(1)).vcf.variants.getAttribute("MivmirScore")).match('matchVariants')
+
+            snapshot(path(workflow.out.vcf.get(0).get(1)).vcf.getInfoTag('MivmirScore', '21', 32863220)).match('21-32863220-MivmirScore')
+            snapshot(path(workflow.out.vcf.get(0).get(1)).vcf.getInfoTag('MivmirExplanation', '21', 32863220)).match('21-32863220-MivmirExplanation')
+            snapshot(path(workflow.out.vcf.get(0).get(1)).vcf.getInfoTag('GicamScore', '21', 32863220)).match('21-32863220-GicamScore')
+
+
+            with (path(workflow.out.vcf.get(0).get(1)).vcf.variants) {
+                for (int i = 0; i < size(); i++) {
+                    assert snapshot(get(i).getAttribute('MivmirScore')).match(get(i).getChr() + '-' + get(i).getStart() + '-MivmirScore')
+                }
+            }
+
+                //{ assert snapshot(path(workflow.out.vcf.get(0).get(1)).vcf.variantsMD5).match('variantsMD5') }
+            */
+
+            assertAll(
+                { assert workflow.success },
+                {
+                    with (path(workflow.out.vcf.get(0).get(1)).vcf.variants) {
+                        for (int i = 0; i < size(); i++) {
+                            assert snapshot(get(i).getAttribute('MivmirScore')).match(get(i).getChr() + '-' + get(i).getStart() + '-MivmirScore')
+                            assert snapshot(get(i).getAttribute('MivmirExplanation')).match(get(i).getChr() + '-' + get(i).getStart() + '-MivmirExplanation')
+                            assert snapshot(get(i).getAttribute('GicamScore')).match(get(i).getChr() + '-' + get(i).getStart() + '-GicamScore')
+                        }
+                    }
+                }
+            )
+        }
+    }
+
 }

@@ -1,54 +1,71 @@
 {
-    "RANK_VARIANTS - SV (process_with_sort = true), stub": {
+    "21-32863228-MivmirScore": {
         "content": [
-            {
-                "0": [
-                    [
-                        "rank_and_filter/",
-                        [
-                            {
-                                "id": "justhusky",
-                                "single_end": false
-                            },
-                            "justhusky.vcf.gz:md5,68b329da9893e34099c7d8ad5cb9c940"
-                        ]
-                    ]
-                ],
-                "1": [
-                    [
-                        {
-                            "id": "justhusky",
-                            "single_end": false
-                        },
-                        "justhusky.vcf.gz:md5,68b329da9893e34099c7d8ad5cb9c940"
-                    ]
-                ],
-                "publish": [
-                    [
-                        "rank_and_filter/",
-                        [
-                            {
-                                "id": "justhusky",
-                                "single_end": false
-                            },
-                            "justhusky.vcf.gz:md5,68b329da9893e34099c7d8ad5cb9c940"
-                        ]
-                    ]
-                ],
-                "vcf": [
-                    [
-                        {
-                            "id": "justhusky",
-                            "single_end": false
-                        },
-                        "justhusky.vcf.gz:md5,68b329da9893e34099c7d8ad5cb9c940"
-                    ]
-                ]
-            }
+            "0.00239"
         ],
-        "timestamp": "2026-03-17T13:09:47.357626106",
+        "timestamp": "2026-04-28T15:17:44.848012791",
         "meta": {
-            "nf-test": "0.9.4",
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863228-MivmirExplanation": {
+        "content": [
+            "[]"
+        ],
+        "timestamp": "2026-04-28T15:17:44.851752188",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863244-MivmirExplanation": {
+        "content": [
+            "[]"
+        ],
+        "timestamp": "2026-04-28T15:17:44.870339552",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863305-GicamScore": {
+        "content": [
+            "0.00239"
+        ],
+        "timestamp": "2026-04-28T15:17:44.886418241",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863228-GicamScore": {
+        "content": [
+            "0.00239"
+        ],
+        "timestamp": "2026-04-28T15:17:44.854029033",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863233-GicamScore": {
+        "content": [
+            "0.00239"
+        ],
+        "timestamp": "2026-04-28T15:17:44.865478614",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863233-MivmirExplanation": {
+        "content": [
+            "[]"
+        ],
+        "timestamp": "2026-04-28T15:17:44.863404806",
+        "meta": {
+            "nf-test": "0.9.5",
             "nextflow": "25.10.4"
         }
     },
@@ -104,6 +121,169 @@
         "timestamp": "2026-03-17T13:09:21.870979671",
         "meta": {
             "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863220-MivmirExplanation": {
+        "content": [
+            "[]"
+        ],
+        "timestamp": "2026-04-28T15:17:44.829331284",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863244-GicamScore": {
+        "content": [
+            "0.00239"
+        ],
+        "timestamp": "2026-04-28T15:17:44.872180769",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863253-MivmirExplanation": {
+        "content": [
+            "[]"
+        ],
+        "timestamp": "2026-04-28T15:17:44.876494176",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863220-MivmirScore": {
+        "content": [
+            "0.00239"
+        ],
+        "timestamp": "2026-04-28T15:17:44.8225929",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863253-MivmirScore": {
+        "content": [
+            "0.00239"
+        ],
+        "timestamp": "2026-04-28T15:17:44.874081615",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "RANK_VARIANTS - SV (process_with_sort = true), stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        "rank_and_filter/",
+                        [
+                            {
+                                "id": "justhusky",
+                                "single_end": false
+                            },
+                            "justhusky.vcf.gz:md5,68b329da9893e34099c7d8ad5cb9c940"
+                        ]
+                    ]
+                ],
+                "1": [
+                    [
+                        {
+                            "id": "justhusky",
+                            "single_end": false
+                        },
+                        "justhusky.vcf.gz:md5,68b329da9893e34099c7d8ad5cb9c940"
+                    ]
+                ],
+                "publish": [
+                    [
+                        "rank_and_filter/",
+                        [
+                            {
+                                "id": "justhusky",
+                                "single_end": false
+                            },
+                            "justhusky.vcf.gz:md5,68b329da9893e34099c7d8ad5cb9c940"
+                        ]
+                    ]
+                ],
+                "vcf": [
+                    [
+                        {
+                            "id": "justhusky",
+                            "single_end": false
+                        },
+                        "justhusky.vcf.gz:md5,68b329da9893e34099c7d8ad5cb9c940"
+                    ]
+                ]
+            }
+        ],
+        "timestamp": "2026-03-17T13:09:47.357626106",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863233-MivmirScore": {
+        "content": [
+            "0.00239"
+        ],
+        "timestamp": "2026-04-28T15:17:44.861293475",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863305-MivmirScore": {
+        "content": [
+            "0.00239"
+        ],
+        "timestamp": "2026-04-28T15:17:44.881416845",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863244-MivmirScore": {
+        "content": [
+            "0.00239"
+        ],
+        "timestamp": "2026-04-28T15:17:44.868500703",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863305-MivmirExplanation": {
+        "content": [
+            "[]"
+        ],
+        "timestamp": "2026-04-28T15:17:44.883378324",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863220-GicamScore": {
+        "content": [
+            "0.00239"
+        ],
+        "timestamp": "2026-04-28T15:17:44.837777761",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "25.10.4"
+        }
+    },
+    "21-32863253-GicamScore": {
+        "content": [
+            "0.00239"
+        ],
+        "timestamp": "2026-04-28T15:17:44.879156363",
+        "meta": {
+            "nf-test": "0.9.5",
             "nextflow": "25.10.4"
         }
     }
