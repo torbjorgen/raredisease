@@ -70,7 +70,7 @@ nextflow_workflow {
         }
     }
 
-    test("RANK_VARIANTS - SNV WITH MIVMIR, GICAM, stub") {
+    test("RANK_VARIANTS - SNV WITH MIVMIR, GICAM") {
 
         config "subworkflows/local/rank_variants/tests/nextflow.config"
 
@@ -95,37 +95,14 @@ nextflow_workflow {
         }
 
         then {
-
-            /*
-
-            //snapshot(path(workflow.out.vcf.get(0).get(1)).vcf.getVariantsAsStrings(100)).match()
-            //snapshot(path(workflow.out.vcf.get(0).get(1)).vcf.variantsMD5).match('variantsMD5')
-            //variants = path(workflow.out.vcf.get(0).get(1)).vcf.variants
-            //snapshot(variants).match()
-            //snapshot(path(workflow.out.vcf.get(0).get(1)).vcf.variants.getAttribute("MivmirScore")).match('matchVariants')
-
-            snapshot(path(workflow.out.vcf.get(0).get(1)).vcf.getInfoTag('MivmirScore', '21', 32863220)).match('21-32863220-MivmirScore')
-            snapshot(path(workflow.out.vcf.get(0).get(1)).vcf.getInfoTag('MivmirExplanation', '21', 32863220)).match('21-32863220-MivmirExplanation')
-            snapshot(path(workflow.out.vcf.get(0).get(1)).vcf.getInfoTag('GicamScore', '21', 32863220)).match('21-32863220-GicamScore')
-
-
-            with (path(workflow.out.vcf.get(0).get(1)).vcf.variants) {
-                for (int i = 0; i < size(); i++) {
-                    assert snapshot(get(i).getAttribute('MivmirScore')).match(get(i).getChr() + '-' + get(i).getStart() + '-MivmirScore')
-                }
-            }
-
-                //{ assert snapshot(path(workflow.out.vcf.get(0).get(1)).vcf.variantsMD5).match('variantsMD5') }
-            */
-
             assertAll(
                 { assert workflow.success },
                 {
                     with (path(workflow.out.vcf.get(0).get(1)).vcf.variants) {
                         for (int i = 0; i < size(); i++) {
-                            assert snapshot(get(i).getAttribute('MivmirScore')).match(get(i).getChr() + '-' + get(i).getStart() + '-MivmirScore')
-                            assert snapshot(get(i).getAttribute('MivmirExplanation')).match(get(i).getChr() + '-' + get(i).getStart() + '-MivmirExplanation')
-                            assert snapshot(get(i).getAttribute('GicamScore')).match(get(i).getChr() + '-' + get(i).getStart() + '-GicamScore')
+                            assert snapshot(get(i).getAttribute('MivmirScore')).match('MIVMIR_GICAM-' + get(i).getChr() + '-' + get(i).getStart() + '-MivmirScore')
+                            assert snapshot(get(i).getAttribute('MivmirExplanation')).match('MIVMIR_GICAM-' + get(i).getChr() + '-' + get(i).getStart() + '-MivmirExplanation')
+                            assert snapshot(get(i).getAttribute('GicamScore')).match('MIVMIR_GICAM-' + get(i).getChr() + '-' + get(i).getStart() + '-GicamScore')
                         }
                     }
                 }
