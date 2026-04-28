@@ -12,7 +12,7 @@ include { GICAM_INFER                                           } from '../../..
 include { BCFTOOLS_SORT                                         } from '../../../modules/nf-core/bcftools/sort/main'
 include { TABIX_BGZIPTABIX                                      } from '../../../modules/nf-core/tabix/bgziptabix/main'
 include { TABIX_BGZIPTABIX as TABIX_BGZIPTABIX_GICAM            } from '../../../modules/nf-core/tabix/bgziptabix/main'
-include { TABIX_BGZIP as TABIX_BGZIP_GENMOD_GICAM               } from '../../../modules/nf-core/tabix/bgzip/main'
+include { TABIX_BGZIPTABIX as TABIX_BGZIPTABIX_GENMOD_GICAM     } from '../../../modules/nf-core/tabix/bgziptabix/main'
 include { BCFTOOLS_ANNOTATE as BCFTOOLS_MERGE_GENMOD_GICAM      } from '../../../modules/nf-core/bcftools/annotate/main'
 
 workflow RANK_VARIANTS {
@@ -71,11 +71,10 @@ workflow RANK_VARIANTS {
             .map {meta, vcf_genmod, vcf_gicam, vcf_index_gicam -> return [ meta, vcf_genmod, [], vcf_gicam, vcf_index_gicam, [], [], [] ]}
             .set {ch_merge_genmod_gicam}
             BCFTOOLS_MERGE_GENMOD_GICAM(ch_merge_genmod_gicam)
-            TABIX_BGZIP_GENMOD_GICAM(BCFTOOLS_MERGE_GENMOD_GICAM.out.vcf)
-            TABIX_BGZIP_GENMOD_GICAM.out.output.set {ch_vcf}
-            ch_gicam_publish = TABIX_BGZIP_GENMOD_GICAM.out.output
-                .map { meta, gz, tbi -> ['rank_and_filter/', [meta, gz, tbi]] }
-            ch_publish = ch_publish.mix(ch_gicam_publish)
+            TABIX_BGZIPTABIX_GENMOD_GICAM(BCFTOOLS_MERGE_GENMOD_GICAM.out.vcf)
+            TABIX_BGZIPTABIX_GENMOD_GICAM.out.gz_index.map {meta, vcf, _tbi -> return [meta, vcf]}.set {ch_vcf}
+            TABIX_BGZIPTABIX_GENMOD_GICAM.out.gz_index
+                .map { meta, gz, tbi -> ['rank_and_filter/', [meta, gz, tbi]] }.set {ch_publish}
         }
 
     emit:
