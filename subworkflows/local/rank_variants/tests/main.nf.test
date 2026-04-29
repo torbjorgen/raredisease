@@ -83,10 +83,8 @@ nextflow_workflow {
                 input[2] = channel.value(file(params.pipelines_testdata_base_path + 'reference/rank_model_dummy_mivmir_gicam_unit_test.ini', checkIfExists: true))
                 input[3] = channel.of([
                     [id:'justhusky', single_end: false],
-                    // TODO: This is mix of SNV, SV data, needs to be cleaned first or MIVMIR crasches
-                    //file(params.modules_testdata_base_path + 'genomics/homo_sapiens/illumina/vcf/genmod.vcf.gz', checkIfExists: true)
-                    //file(params.pipelines_testdata_base_path + 'testdata/justhusky_snv_mivmir.vcf', checkIfExists: true)
-                    file('https://raw.githubusercontent.com/torbjorgen/nfcore-test-datasets/rank_variants_mivmir_gicam_test_data/testdata/justhusky_snv_rank_variants_mivmir_gicam.vcf')
+                    //  Only SNV INDELs supported
+                    file(params.pipelines_testdata_base_path + 'testdata/justhusky_snv_rank_variants_mivmir_gicam.vcf', checkIfExists: true)
                 ])
                 input[4] = false
                 input[5] = true
