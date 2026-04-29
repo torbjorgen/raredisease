@@ -18,12 +18,13 @@ include { BCFTOOLS_ANNOTATE as BCFTOOLS_MERGE_GENMOD_GICAM      } from '../../..
 workflow RANK_VARIANTS {
 
     take:
-        ch_pedfile             // channel: [mandatory] [ path(ped) ]
-        ch_reduced_penetrance  // channel: [mandatory] [ path(pentrance) ]
-        ch_score_config        // channel: [mandatory] [ path(ini) ]
-        ch_vcf                 // channel: [mandatory] [ val(meta), path(vcf) ]
-        process_with_sort      // Boolean
-        rank_with_mivmir_gicam // Boolean
+        ch_pedfile                    // channel: [mandatory] [ path(ped) ]
+        ch_reduced_penetrance         // channel: [mandatory] [ path(pentrance) ]
+        ch_score_config               // channel: [mandatory] [ path(ini) ]
+        ch_vcf                        // channel: [mandatory] [ val(meta), path(vcf) ]
+        process_with_sort             // Boolean
+        rank_with_mivmir_gicam        // Boolean
+        ch_genmod_gicam_score_config  // channel: [mandatory if rank_with_mivmir_gicam] [ path(ini) ]
 
     main:
         GENMOD_ANNOTATE(ch_vcf)
@@ -38,8 +39,6 @@ workflow RANK_VARIANTS {
 
         // Run MIVMIR - GICAM scoring (not supported for MT SNVs and SVs)
         if (rank_with_mivmir_gicam) {
-            // ch_genmod_gicam_score_config is integral to GICAM inference; it cannot be changed without retraining gicam
-            ch_genmod_gicam_score_config = channel.fromPath("$projectDir/modules/local/gicam/rank_model_genmod_gicam.ini", checkIfExists: true).collect()
             GENMOD_SCORE_FOR_GICAM(ch_score_in, ch_genmod_gicam_score_config)
             MIVMIR_INFER(GENMOD_SCORE_FOR_GICAM.out.vcf)
             GICAM_INFER(MIVMIR_INFER.out.vcf)

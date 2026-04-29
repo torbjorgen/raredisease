@@ -135,6 +135,7 @@ workflow RAREDISEASE {
     ch_score_config_mt
     ch_score_config_snv
     ch_score_config_sv
+    ch_score_config_genmod_gicam
     ch_sdf
     ch_sentieon_pcr_indel_model
     ch_subdepth
@@ -511,6 +512,7 @@ workflow RAREDISEASE {
                 ch_ranksnv_nuclear_in,
                 false,
                 val_rank_with_mivmir_gicam
+                ch_score_config_genmod_gicam
             )
             ch_rank_snv_publish = RANK_VARIANTS_SNV.out.publish
         }
@@ -582,7 +584,8 @@ workflow RAREDISEASE {
                 ch_score_config_mt,
                 ch_ranksnv_mt_in,
                 false,
-                false
+                false,
+                []
             )
             ch_rank_mt_publish = RANK_VARIANTS_MT.out.publish
         }
@@ -709,7 +712,8 @@ workflow RAREDISEASE {
                 ch_score_config_sv,
                 ch_ranksnv_sv_in,
                 true,
-                false
+                false,
+                []
             )
             ch_rank_sv_publish = RANK_VARIANTS_SV.out.publish
         }

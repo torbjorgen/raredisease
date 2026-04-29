@@ -30,6 +30,7 @@ nextflow_workflow {
                 ])
                 input[4] = false
                 input[5] = false
+                input[6] = []
                 """
             }
         }
@@ -58,6 +59,7 @@ nextflow_workflow {
                 ])
                 input[4] = true
                 input[5] = false
+                input[6] = []
                 """
             }
         }
@@ -88,6 +90,8 @@ nextflow_workflow {
                 ])
                 input[4] = false
                 input[5] = true
+                // ch_genmod_gicam_score_config is integral to GICAM inference; it cannot be changed without retraining gicam
+                input[6] = channel.fromPath("$projectDir/assets/rank_model_genmod_gicam.ini", checkIfExists: true).collect()
                 """
             }
         }

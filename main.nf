@@ -216,6 +216,8 @@ workflow NFCORE_RAREDISEASE {
     ch_score_config_mt          = channelFromPath(val_score_config_mt, true)
     ch_score_config_snv         = channelFromPath(val_score_config_snv, true)
     ch_score_config_sv          = channelFromPath(val_score_config_sv, true)
+    // ch_genmod_gicam_score_config is integral to GICAM inference; it cannot be changed without retraining gicam
+    ch_score_config_genmod_gicam = channel.fromPath("$projectDir/assets/rank_model_genmod_gicam.ini", checkIfExists: true).collect()
     ch_vcf2cytosure_blacklist   = channelFromPath(val_vcf2cytosure_blacklist, true)
     ch_vcfanno_lua              = channelFromPath(val_vcfanno_lua, true)
     ch_vcfanno_toml             = channelFromPath(val_vcfanno_toml, true)
@@ -433,6 +435,7 @@ workflow NFCORE_RAREDISEASE {
         ch_score_config_mt,
         ch_score_config_snv,
         ch_score_config_sv,
+        ch_score_config_genmod_gicam,
         ch_sdf,
         ch_sentieon_pcr_indel_model,
         ch_subdepth,
