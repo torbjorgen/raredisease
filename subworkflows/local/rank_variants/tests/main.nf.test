@@ -72,7 +72,7 @@ nextflow_workflow {
 
     test("RANK_VARIANTS - SNV WITH MIVMIR, GICAM") {
 
-        config "subworkflows/local/rank_variants/tests/nextflow.config"
+        config "./nextflow.config"
 
         when {
             workflow {
