@@ -79,8 +79,8 @@ nextflow_workflow {
                 """
                 input[0] = channel.value(file(params.modules_testdata_base_path + 'genomics/homo_sapiens/genome/vcf/ped/justhusky.ped', checkIfExists: true))
                 input[1] = channel.value(file(params.pipelines_testdata_base_path + 'reference/reduced_penetrance.tsv', checkIfExists: true))
-                // TODO: Update path to non hack one
-                input[2] = channel.value(file("$projectDir/subworkflows/local/rank_variants/tests/rank_model_dummy_mivmir_gicam_unit_test.ini", checkIfExists: true))
+                // Dummy scoring config, Genmod scoring is not intended test target.
+                input[2] = channel.value(file(params.pipelines_testdata_base_path + 'reference/rank_model_dummy_mivmir_gicam_unit_test.ini', checkIfExists: true))
                 input[3] = channel.of([
                     [id:'justhusky', single_end: false],
                     // TODO: This is mix of SNV, SV data, needs to be cleaned first or MIVMIR crasches
