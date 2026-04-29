@@ -511,7 +511,7 @@ workflow RAREDISEASE {
                 ch_score_config_snv,
                 ch_ranksnv_nuclear_in,
                 false,
-                val_rank_with_mivmir_gicam
+                val_rank_with_mivmir_gicam,
                 ch_score_config_genmod_gicam
             )
             ch_rank_snv_publish = RANK_VARIANTS_SNV.out.publish
