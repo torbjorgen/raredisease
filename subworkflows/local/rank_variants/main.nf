@@ -49,7 +49,6 @@ workflow RANK_VARIANTS {
 
         ch_sort_publish  = channel.empty()
         ch_tabix_publish = channel.empty()
-        ch_gicam_publish = channel.empty()
 
         if (process_with_sort) {
             ch_vcf = BCFTOOLS_SORT(GENMOD_COMPOUND.out.vcf).vcf // SV file needs to be sorted before indexing
