@@ -778,6 +778,11 @@
                     "type": "boolean",
                     "description": "Enable ranking by MIVMIR, GICAM models",
                     "fa_icon": "fas fa-robot"
+                },
+                "run_mivmir_internal_test": {
+                    "type": "boolean",
+                    "description": "Run MIVMIR internal test checks prio to inference (computationally expensive)",
+                    "fa_icon": "fas fa-robot"
                 }
             }
         },
