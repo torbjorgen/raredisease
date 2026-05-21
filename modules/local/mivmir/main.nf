@@ -25,29 +25,15 @@ process MIVMIR_INFER {
     task.ext.when == null || task.ext.when
 
     script:
+    def run_mivmir_internal_test = params.run_mivmir_internal_test
     """
+    set -e
     . /opt/pyenv/bin/activate
     export PYTHONPATH=/rdds/src
+    if [ "$params.run_mivmir_internal_test" == "true" ]; then
+        # Test inference API and numerical reproducibility
+        python3 -m pytest /rdds/src/tests/variant_rank_score -k test_inference
+    fi
     python3 -m rdds.variant_rank_score predict-on-vcf  --cpu_cores ${task.cpus} ${input_vcf}
-    """
-}
-
-process MIVMIR_INTERNAL_UNIT_TEST {
-    // Test inference API and numerical reproducibility
-    container "docker.io/clinicalgenomics/rdds_mivmir:v1.12.2"
-
-    beforeScript "mkdir ${task.workDir}/rdds-tmp"
-    afterScript "rm -r ${task.workDir}/rdds-tmp"
-    containerOptions {[
-        workflow.containerEngine.equals("singularity") ? "--bind ${task.workDir}/rdds-tmp:/rdds/tmp" : "",
-        workflow.containerEngine.equals("docker") ? "--tmpfs /rdds/tmp": "",
-        ""
-    ].minus("").join(" ")}
-
-    script:
-    """
-    . /opt/pyenv/bin/activate
-    export PYTHONPATH=/rdds/src
-    python3 -m pytest /rdds/src/tests/variant_rank_score -k test_inference
     """
 }

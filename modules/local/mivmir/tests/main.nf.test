@@ -28,17 +28,3 @@ nextflow_process {
     }
 
 }
-
-nextflow_process {
-    name "Test execute MIVMIR internal test"
-    script "modules/local/mivmir/main.nf"
-    process "MIVMIR_INTERNAL_UNIT_TEST"
-
-    test("Internal MIVMIR unit test for numerical reproducibility") {
-        when {
-        }
-        then {
-            assert process.success
-        }
-    }
-}
