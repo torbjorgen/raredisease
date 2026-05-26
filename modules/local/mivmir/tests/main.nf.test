@@ -16,6 +16,7 @@ nextflow_process {
                     // VCF as annotated by rank_variants subworkflow, prior to mivmir inference call
                     file(params.pipelines_testdata_base_path + 'testdata/justhusky_snv_mivmir.vcf', checkIfExists: true)
                 ]
+                input[1] = true
                 """
             }
         }

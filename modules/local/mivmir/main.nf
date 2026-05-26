@@ -16,6 +16,7 @@ process MIVMIR_INFER {
 
     input:
     tuple val(meta), path(input_vcf)
+    val run_internal_test
 
     output:
     tuple val(meta), path('*-predictions.vcf'), emit: vcf
@@ -25,12 +26,11 @@ process MIVMIR_INFER {
     task.ext.when == null || task.ext.when
 
     script:
-    def run_mivmir_internal_test = params.run_mivmir_internal_test
     """
     set -e
     . /opt/pyenv/bin/activate
     export PYTHONPATH=/rdds/src
-    if [ "$params.run_mivmir_internal_test" == "true" ]; then
+    if [ "$run_internal_test" == "true" ]; then
         # Test inference API and numerical reproducibility
         python3 -m pytest /rdds/src/tests/variant_rank_score -k test_inference
     fi

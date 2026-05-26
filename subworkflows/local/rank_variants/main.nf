@@ -41,7 +41,7 @@ workflow RANK_VARIANTS {
         // ch_genmod_gicam_score_config is integral to GICAM inference; it cannot be changed without retraining gicam
         GENMOD_SCORE_FOR_GICAM(ch_score_in, ch_genmod_gicam_score_config)
 
-        MIVMIR_INFER(GENMOD_SCORE_FOR_GICAM.out.vcf)
+        MIVMIR_INFER(GENMOD_SCORE_FOR_GICAM.out.vcf, false)
 
         GICAM_INFER(MIVMIR_INFER.out.vcf)
 

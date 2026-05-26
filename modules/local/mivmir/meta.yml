@@ -23,6 +23,9 @@ input:
         description: vcf file
         pattern: "*.{vcf}"
         ontologies: []
+  - run_internal_test:
+      type: value
+      description: Execute internal tests prior to running inference
 output:
   vcf:
     - - meta:
